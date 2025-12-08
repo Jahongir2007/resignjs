@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resign.js - An easy way to write proxy in JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Ensure custom tags behave like block elements */
+    /* heroSection, features, featureBox, fbHeading {
+      display: block;
+    } */
+
+    /* .hero-bg {
+      background: linear-gradient(135deg, #6D5BBA, #8D58BF);
+    } */
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Hero Section -->
+   <!-- Main Hero -->
+  <section class="h-screen bg-gray-900 flex flex-col justify-center items-center text-center px-10">
+    <h1 class="text-6xl font-bold mb-4 text-purple-500">Welcome to ResignJS</h1>
+    <p class="text-xl text-white mb-6 max-w-2xl">A reactive UI library to make your DOM alive, simple, and powerful.</p>
+    <a href="#feature1" class="bg-purple-500 text-gray-900 font-semibold px-6 py-3 rounded shadow hover:bg-purple-400 transition">Explore Features</a>
+  </section>
+
+  <!-- Feature 1 -->
+  <OddFeatureSection id="feature1">
+    <featureHeading>Reactive Arrays</featureHeading>
+    <featureText>Automatically update your lists when data changes. No extra DOM manipulation needed.</featureText>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-10">
+    <!-- Column 1: Code -->
+    <div class="bg-gray-900 rounded-lg p-6 overflow-auto text-start">
+<pre><code class="language-javascript">
+// Example: Reactive array in ResignJS
+const todoList = new El("#todoList", proxy => {
+  proxy.list("todos", ["Buy milk", "Learn JS", "Build Resign.js demo"], item => `&lt;li&gt;${item}&lt;/li&gt;`)
+});
+
+// Adding new element in list
+new El("#addTodo", proxy => {
+  proxy.on("click", () => {
+    var newItem = document.querySelector("#newItem").value;
+    todoList.todos.push(newItem);
+  });
+}); 
+</code></pre>
+    </div>
+
+    <!-- Column 2: Text -->
+    <div class="flex flex-col justify-center text-gray-100 py-16 px-10 max-w-3xl mx-auto">
+        <!-- Input -->
+        <div class="flex gap-2 mb-6">
+          <input id="todoInput" type="text" placeholder="Add a new todo"
+            class="flex-1 p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring focus:ring-purple-500 focus:outline-none text-gray-100 placeholder-gray-500 transition" />
+          <button id="addTodo"
+            class="bg-purple-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-purple-400 transition">Add</button>
+        </div>
+
+        <!-- List -->
+        <ul id="todoList" class="space-y-2">
+          <!-- Items will be injected here -->
+        </ul>
+    </div>
+  </div>
+  </OddFeatureSection>
+
+  <!-- Feature 2 -->
+  <EvenFeatureSection id="feature2">
+    <featureHeading>Reactive Tabs</featureHeading>
+    <featureText>Switch between tabs easily. Only one active at a time, fully reactive UI.</featureText>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-10">
+    <!-- Column 1: Code -->
+    <div class="bg-gray-800 rounded-lg p-6 overflow-auto text-start">
+<pre><code class="language-javascript">
+// Example: Reactive tabs in ResignJS
+const tabs = new El("#tab-buttons", proxy => {
+  proxy.tab("tab1", "#tab1");
+  proxy.tab("tab2", "#tab2");
+  proxy.tab("tab3", "#tab3");
+});
+
+// Switching tabs when clicked
+El("#tab1-btn", proxy => {
+  proxy.on("click", ()=> tabs.tab1.active = !tabs.tab1.active);
+});
+
+El("#tab2-btn", proxy => {
+  proxy.on("click", ()=> tabs.tab2.active = !tabs.tab2.active);
+});
+
+El("#tab3-btn", proxy => {
+  proxy.on("click", ()=> tabs.tab3.active = !tabs.tab3.active);
+});
+</code></pre>
+    </div>
+
+    <!-- Column 2: Text -->
+    <div class="flex flex-col justify-center text-gray-100 py-16 px-10 max-w-3xl mx-auto">
+      <!-- Tab buttons -->
+      <div id="tab-buttons" class="flex border-b border-gray-700 mb-6">
+        <button id="tab1-btn" class="px-6 py-3 font-semibold text-gray-300 hover:text-purple-400 border-b-2 border-transparent hover:border-purple-500 transition">Tab 1</button>
+        <button id="tab2-btn" class="px-6 py-3 font-semibold text-gray-300 hover:text-purple-400 border-b-2 border-transparent hover:border-purple-500 transition">Tab 2</button>
+        <button id="tab3-btn" class="px-6 py-3 font-semibold text-gray-300 hover:text-purple-400 border-b-2 border-transparent hover:border-purple-500 transition">Tab 3</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="tabContents">
+        <div id="tab1" class="tab-content">Content for Tab 1</div>
+        <div id="tab2" class="tab-content hidden">Content for Tab 2</div>
+        <div id="tab3" class="tab-content hidden">Content for Tab 3</div>
+      </div>
+    </div>
+  </div>
+  </EvenFeatureSection>
+
+  <!-- Feature 3 -->
+  <OddFeatureSection id="feature3">
+    <featureHeading>Lightweight & Flexible</featureHeading>
+    <featureText>Small footprint, easy integration, works with any project.</featureText>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-10">
+    <!-- Column 1: Code -->
+    <div class="bg-gray-900 rounded-lg p-6 overflow-auto text-start">
+<pre><code class="language-javascript">
+// Example: Reactive input in ResignJS
+input("#greetingInput", proxy => {
+  proxy.show("#greering", "Hi, $$value");
+});
+</code></pre>
+    </div>
+
+    <!-- Column 2: Text -->
+    <div class="flex flex-col justify-center text-gray-100 py-16 px-10 max-w-3xl mx-auto">
+      <!-- Input -->
+      <div class="flex gap-2 mb-2">
+        <input id="greetingInput" type="text" placeholder="Type something..."
+          class="flex-1 p-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring focus:ring-purple-500 focus:outline-none text-gray-100 placeholder-gray-500 transition" />
+      </div>
+
+      <!-- Greeting below the input -->
+      <p id="greeting" class="text-gray-100 text-xl md:text-2xl font-semibold mt-4 transition-colors"></p>
+    </div>
+  </div>
+  </OddFeatureSection>
+
+  <footerSection>
+    <div class="innerFooter">
+      <footerTitle>Resign.js</footerTitle>
+      <p>An easy way to use Proxy in JavaScript 🚀</p>
+      <footerLinks>
+        <footerLink>GitHub</footerLink>
+        <footerLink>Documentation</footerLink>
+        <footerLink>Community</footerLink>
+        <footerLink>Contact</footerLink>
+      </footerLinks>
+
+      <footerCopy>© 2025 Resign.js. All rights reserved.</footerCopy>
+    </div>
+  </footerSection>
+
+  <script>
+    hljs.highlightAll(); // Initialize syntax highlighting
+  </script>
+  <script src="./resign.js"></script>
+  <script>
+    new El("OddFeatureSection", proxy => {
+      proxy.classes("h-screen bg-gray-800 text-gray-100 flex flex-col justify-center items-center text-center px-10");
+      proxy.value = "$$value";
+    });
+
+    new El("featureHeading", proxy => {
+      proxy.classes("text-5xl font-bold mb-4 text-purple-400");
+    });
+
+    new El("evenFeatureSection", proxy => {
+      proxy.classes("h-screen bg-gray-900 text-gray-100 flex flex-col justify-center items-center text-center px-10");
+    });
+
+    new El("featureText", proxy => {
+      proxy.classes("text-xl max-w-2xl");
+    });
+
+    // Example: Reactive array in ResignJS
+    const todoList = new El("#todoList", proxy => {
+      proxy.list("todos", ["Buy milk", "Learn JS", "Build Resign.js demo"], item => `<li class="flex justify-between items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">${item}</li>`)
+    });
+
+    // Adding new element in list
+    new El("#addTodo", proxy => {
+      proxy.on("click", () => {
+        var newItem = document.querySelector("#todoInput").value;
+        todoList.todos.push(newItem);
+      });
+    }); 
+
+    // Example: Reactive tabs in ResignJS
+    const tabs = new El("#tab-buttons", proxy => {
+      proxy.tab("tab1", "#tab1");
+      proxy.tab("tab2", "#tab2");
+      proxy.tab("tab3", "#tab3");
+    });
+
+    // Switching tabs when clicked
+    El("#tab1-btn", proxy => {
+      proxy.on("click", ()=> tabs.tab1.active = !tabs.tab1.active);
+    });
+
+    El("#tab2-btn", proxy => {
+      proxy.on("click", ()=> tabs.tab2.active = !tabs.tab2.active);
+    });
+
+    El("#tab3-btn", proxy => {
+      proxy.on("click", ()=> tabs.tab3.active = !tabs.tab3.active);
+    });
+
+    input("#greetingInput", proxy => {
+      proxy.show("#greeting", "Hi, $$value");
+      console.log(proxy.value);
+    });
+
+    // Footer section container
+    El("footerSection", proxy => {
+      proxy.classes(
+        "bg-gray-900 text-gray-300 py-12 flex justify-center"
+      );
+    });
+
+    // Inner footer wrapper
+    El(".innerFooter", proxy => {
+      proxy.classes("text-center max-w-xl px-4");
+    });
+
+    // Footer title
+    El("footerTitle", proxy => {
+      proxy.classes("text-3xl font-bold text-white mb-3");
+    });
+
+    // Footer link list
+    El("footerLinks", proxy => {
+      proxy.classes("flex flex-wrap justify-center gap-6 my-6");
+    });
+
+    // Individual footer link
+    El("footerLink", proxy => {
+      proxy.classes(
+        "cursor-pointer hover:text-white transition text-lg"
+      );
+    });
+
+    // Copyright text
+    El("footerCopy", proxy => {
+      proxy.classes("text-sm text-gray-500 mt-4");
+    });
+
+    El("footerSection .innerFooter about", proxy => {
+      proxy.about = "An easy way to use Proxy in JavaScript 🚀";
+    });
+
+  </script>
+
+</body>
+</html>
