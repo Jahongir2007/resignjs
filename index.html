@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resign.js - An easy way to write proxy in JavaScript</title>
+  <title>Signel.js - An easy way to write proxy in JavaScript</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
   <!-- Hero Section -->
    <!-- Main Hero -->
   <section class="h-screen bg-gray-900 flex flex-col justify-center items-center text-center px-10">
-    <h1 class="text-6xl font-bold mb-4 text-purple-500">Welcome to ResignJS</h1>
+    <h1 class="text-6xl font-bold mb-4 text-purple-500">Welcome to SignelJS</h1>
     <p class="text-xl text-white mb-6 max-w-2xl">A reactive UI library to make your DOM alive, simple, and powerful.</p>
     <a href="#feature1" class="bg-purple-500 text-gray-900 font-semibold px-6 py-3 rounded shadow hover:bg-purple-400 transition">Explore Features</a>
   </section>
@@ -43,7 +43,7 @@
     <!-- Column 1: Code -->
     <div class="bg-gray-900 rounded-lg p-6 overflow-auto text-start">
 <pre><code class="language-javascript">
-// Example: Reactive array in ResignJS
+// Example: Reactive array in SignelJS
 const todoList = new El("#todoList", proxy => {
   proxy.list("todos", ["Buy milk", "Learn JS", "Build Resign.js demo"], item => `&lt;li&gt;${item}&lt;/li&gt;`)
 });
@@ -84,7 +84,7 @@ new El("#addTodo", proxy => {
     <!-- Column 1: Code -->
     <div class="bg-gray-800 rounded-lg p-6 overflow-auto text-start">
 <pre><code class="language-javascript">
-// Example: Reactive tabs in ResignJS
+// Example: Reactive tabs in SignelJS
 const tabs = new El("#tab-buttons", proxy => {
   proxy.tab("tab1", "#tab1");
   proxy.tab("tab2", "#tab2");
@@ -133,7 +133,7 @@ El("#tab3-btn", proxy => {
     <!-- Column 1: Code -->
     <div class="bg-gray-900 rounded-lg p-6 overflow-auto text-start">
 <pre><code class="language-javascript">
-// Example: Reactive input in ResignJS
+// Example: Reactive input in SignelJS
 input("#greetingInput", proxy => {
   proxy.show("#greering", "Hi, $$value");
 });
@@ -156,7 +156,7 @@ input("#greetingInput", proxy => {
 
   <footerSection>
     <div class="innerFooter">
-      <footerTitle>Resign.js</footerTitle>
+      <footerTitle>Signel.js</footerTitle>
       <p>An easy way to use Proxy in JavaScript 🚀</p>
       <footerLinks>
         <footerLink>GitHub</footerLink>
@@ -165,7 +165,7 @@ input("#greetingInput", proxy => {
         <footerLink>Contact</footerLink>
       </footerLinks>
 
-      <footerCopy>© 2025 Resign.js. All rights reserved.</footerCopy>
+      <footerCopy>© 2025 Signel.js. All rights reserved.</footerCopy>
     </div>
   </footerSection>
 
@@ -182,7 +182,6 @@ input("#greetingInput", proxy => {
     new El("featureHeading", proxy => {
       proxy.classes("text-5xl font-bold mb-4 text-purple-400");
     });
-
     new El("evenFeatureSection", proxy => {
       proxy.classes("h-screen bg-gray-900 text-gray-100 flex flex-col justify-center items-center text-center px-10");
     });
