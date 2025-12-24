@@ -44,7 +44,7 @@ License: MIT
 Include Signel.js in your page:
 
 ```html
-<script src="signel.js"></script>
+<script src="https://signel.onrender.com/signel.js"></script>
 ```
 
 Signel works directly with the DOM. No build tools required.
