@@ -36,6 +36,7 @@ License: MIT
    * `renderList()`
 9. Styling & Classes
 10. Design Philosophy & Notes
+11. Online demos
 
 ---
 
@@ -310,6 +311,11 @@ const state = el("#app", { name: "World" });
 model("#name", state, "name");
 click("#btn", () => state.name = "Signel.js");
 ```
+
+---
+
+## 11. Online demos
+[Online mini timer](https://jsfiddle.net/jahongirsobirov/fno2qabe/6/)
 
 ---
 
